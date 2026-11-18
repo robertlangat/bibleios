@@ -192,9 +192,11 @@ final class BibleDailyUITests: XCTestCase {
         if explainer.waitForExistence(timeout: 20) {
             sleep(2) // the form is a web page; let it finish loading
             screenshot(app, "11a_consent_explainer")
+            let f = explainer.frame
+            let point = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: f.midX, dy: f.midY))
             var tries = 0
             while explainer.exists && tries < 5 {
-                explainer.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+                point.tap()
                 sleep(2)
                 tries += 1
             }
