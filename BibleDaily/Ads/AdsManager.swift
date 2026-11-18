@@ -12,6 +12,13 @@ final class AdsManager: NSObject, ObservableObject {
 
     @Published private(set) var ready = false
     @Published private(set) var privacyOptionsRequired = false
+    /// Short log of the ads start-up, shown only with the `-adsDebug` launch argument (UI tests).
+    @Published private(set) var status = ""
+
+    func log(_ message: String) {
+        print("Ads: \(message)")
+        status = (status.isEmpty ? "" : status + " | ") + message
+    }
 
     private var started = false
     private var trackingRequested = false
@@ -28,10 +35,12 @@ final class AdsManager: NSObject, ObservableObject {
         info.requestConsentInfoUpdate(with: RequestParameters()) { [weak self] error in
             Task { @MainActor in
                 guard let self else { return }
-                if let error { print("Consent info error: \(error.localizedDescription)") }
+                if let error { self.log("consent update error: \(error.localizedDescription)") }
+                else { self.log("consent updated, status \(ConsentInformation.shared.consentStatus.rawValue)") }
                 ConsentForm.loadAndPresentIfRequired(from: UIApplication.topViewController()) { formError in
                     Task { @MainActor in
-                        if let formError { print("Consent form error: \(formError.localizedDescription)") }
+                        if let formError { self.log("consent form error: \(formError.localizedDescription)") }
+                        else { self.log("consent form done") }
                         self.afterConsent()
                     }
                 }
@@ -43,12 +52,16 @@ final class AdsManager: NSObject, ObservableObject {
 
     private func afterConsent() {
         privacyOptionsRequired = ConsentInformation.shared.privacyOptionsRequirementStatus == .required
+        log("canRequestAds \(ConsentInformation.shared.canRequestAds)")
         guard ConsentInformation.shared.canRequestAds else { return }
         guard !trackingRequested else { return }
         trackingRequested = true
         if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
-            ATTrackingManager.requestTrackingAuthorization { _ in
-                Task { @MainActor in AdsManager.shared.startSDK() }
+            ATTrackingManager.requestTrackingAuthorization { s in
+                Task { @MainActor in
+                    AdsManager.shared.log("ATT \(s.rawValue)")
+                    AdsManager.shared.startSDK()
+                }
             }
         } else {
             startSDK()
@@ -59,6 +72,7 @@ final class AdsManager: NSObject, ObservableObject {
         guard !ready else { return }
         MobileAds.shared.start(completionHandler: nil)
         ready = true
+        log("SDK started")
         loadInterstitial()
     }
 
@@ -78,13 +92,14 @@ final class AdsManager: NSObject, ObservableObject {
                 let manager = AdsManager.shared
                 manager.loadingInterstitial = false
                 if let error {
-                    print("Interstitial failed to load: \(error.localizedDescription)")
+                    manager.log("interstitial error: \(error.localizedDescription)")
                     try? await Task.sleep(for: .seconds(60))
                     manager.loadInterstitial()
                     return
                 }
                 ad?.fullScreenContentDelegate = manager
                 manager.interstitial = ad
+                manager.log("interstitial loaded")
             }
         }
     }
@@ -139,17 +154,19 @@ extension UIApplication {
 
 // MARK: - Banner
 
-/// Adaptive anchored banner. Takes no space until an ad has loaded (so it is invisible offline).
+/// Adaptive anchored banner. Shown only once ads are allowed; it collapses to no space if an ad
+/// fails to load (for example offline) and comes back when a later retry succeeds.
 struct BannerSlot: View {
     @ObservedObject private var ads = AdsManager.shared
     @State private var loaded = false
+    @State private var failed = false
 
     var body: some View {
         if ads.ready {
             let width = UIScreen.main.bounds.width
             let size = currentOrientationAnchoredAdaptiveBanner(width: width)
-            BannerAdView(adSize: size, loaded: $loaded)
-                .frame(width: width, height: loaded ? size.size.height : 0)
+            BannerAdView(adSize: size, loaded: $loaded, failed: $failed)
+                .frame(width: width, height: failed && !loaded ? 0 : size.size.height)
                 .accessibilityIdentifier(loaded ? "ad_banner_loaded" : "ad_banner")
         }
     }
@@ -158,8 +175,9 @@ struct BannerSlot: View {
 private struct BannerAdView: UIViewRepresentable {
     let adSize: AdSize
     @Binding var loaded: Bool
+    @Binding var failed: Bool
 
-    func makeCoordinator() -> Coordinator { Coordinator(loaded: $loaded) }
+    func makeCoordinator() -> Coordinator { Coordinator(loaded: $loaded, failed: $failed) }
 
     func makeUIView(context: Context) -> BannerView {
         let banner = BannerView(adSize: adSize)
@@ -174,15 +192,20 @@ private struct BannerAdView: UIViewRepresentable {
 
     final class Coordinator: NSObject, BannerViewDelegate {
         var loaded: Binding<Bool>
-        init(loaded: Binding<Bool>) { self.loaded = loaded }
+        var failed: Binding<Bool>
+        init(loaded: Binding<Bool>, failed: Binding<Bool>) { self.loaded = loaded; self.failed = failed }
 
         func bannerViewDidReceiveAd(_ bannerView: BannerView) {
             loaded.wrappedValue = true
+            failed.wrappedValue = false
+            Task { @MainActor in AdsManager.shared.log("banner loaded") }
         }
 
         func bannerView(_ bannerView: BannerView, didFailToReceiveAdWithError error: Error) {
             loaded.wrappedValue = false
-            print("Banner failed to load: \(error.localizedDescription)")
+            failed.wrappedValue = true
+            let message = error.localizedDescription
+            Task { @MainActor in AdsManager.shared.log("banner error: \(message)") }
             DispatchQueue.main.asyncAfter(deadline: .now() + 60) { [weak bannerView] in
                 bannerView?.load(Request())
             }

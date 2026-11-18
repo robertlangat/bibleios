@@ -6,6 +6,7 @@ enum LaunchOptions {
     static let args = ProcessInfo.processInfo.arguments
     static let resetData = args.contains("-resetData")
     static let disableAds = args.contains("-disableAds")
+    static let adsDebug = args.contains("-adsDebug")
 }
 
 @main
@@ -120,6 +121,14 @@ struct RootView: View {
             SavedView().withBanner()
                 .tabItem { Label("Saved", systemImage: "bookmark") }
                 .tag(AppState.Tab.saved)
+        }
+        .overlay(alignment: .top) {
+            if LaunchOptions.adsDebug {
+                Text(ads.status.isEmpty ? "ads: starting" : ads.status)
+                    .font(.system(size: 8)).foregroundStyle(.secondary)
+                    .accessibilityIdentifier("ads_status")
+                    .allowsHitTesting(false)
+            }
         }
         .task {
             if !LaunchOptions.disableAds { ads.start() }

@@ -185,7 +185,7 @@ final class BibleDailyUITests: XCTestCase {
     /// an interstitial appears after 3 chapter moves.
     func test7_TestAdsLoad() {
         let app = XCUIApplication()
-        app.launchArguments = ["-resetData"]
+        app.launchArguments = ["-resetData", "-adsDebug"]
         app.launch()
         // Google's consent flow first shows its tracking explainer ("Continue"), then Apple's prompt.
         let explainer = app.buttons["Continue"]
@@ -208,7 +208,10 @@ final class BibleDailyUITests: XCTestCase {
             deny.tap()
         }
 
-        XCTAssertTrue(element(app, "ad_banner_loaded").waitForExistence(timeout: 60), "Test banner did not load")
+        let loaded = element(app, "ad_banner_loaded").waitForExistence(timeout: 60)
+        let status = element(app, "ads_status").label
+        print("ADS STATUS: \(status)")
+        XCTAssertTrue(loaded, "Test banner did not load. Ads status: \(status)")
         screenshot(app, "11_banner_ad")
 
         app.tabBars.buttons["Read"].tap()
