@@ -180,4 +180,26 @@ final class BibleDailyUITests: XCTestCase {
         app.buttons["Light"].tap()
         XCTAssertTrue(app.switches["reminder_switch"].exists || element(app, "reminder_switch").exists)
     }
+
+    /// Ads ON (Google test units): answer Apple's tracking prompt, then check the banner loads and
+    /// an interstitial appears after 3 chapter moves.
+    func test7_TestAdsLoad() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-resetData"]
+        app.launch()
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let deny = springboard.buttons["Ask App Not to Track"]
+        if deny.waitForExistence(timeout: 20) { deny.tap() }
+
+        XCTAssertTrue(element(app, "ad_banner_loaded").waitForExistence(timeout: 60), "Test banner did not load")
+        screenshot(app, "11_banner_ad")
+
+        app.tabBars.buttons["Read"].tap()
+        sleep(8) // let the interstitial finish loading
+        for _ in 0..<3 { app.buttons["next_chapter"].tap(); sleep(1) }
+        sleep(4)
+        screenshot(app, "12_interstitial_ad")
+        // While the interstitial covers the screen, the reader's chapter bar is not hittable.
+        XCTAssertFalse(app.buttons["next_chapter"].isHittable, "Interstitial did not appear")
+    }
 }
