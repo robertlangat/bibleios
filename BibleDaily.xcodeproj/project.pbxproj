@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0294B49BD0BF06AB0E01FDD3 /* BibleDailyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1702D156BDD0193BFC23 /* BibleDailyApp.swift */; };
+		0ED32669D1BBCE4CFEE07360 /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C2D42177F9B5660F4609E /* Stores.swift */; };
+		1A145A52B90F7C5B07412EF3 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 43A7E2E2C00BBC9420837695 /* GoogleUserMessagingPlatform */; };
+		2BF91DD2D1FFBCFD1BE77AA0 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA7201AED4289C80C62271 /* Books.swift */; };
+		34D14E48662AEB1926927FD4 /* BibleDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16EE1D7120F91D2D2C3CAD /* BibleDailyUITests.swift */; };
+		4F9A6BA49DEE9BAB5126988A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB859BF5B391B44200EA71A2 /* Common.swift */; };
+		613048EF392A9BA80D78137B /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC303BA583373CD7804BF72E /* Reminders.swift */; };
+		6E9C86210EB9AF899104807B /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968219A6FF704C3287CDB15D /* Domain.swift */; };
+		73CD05DFD29012ECD679021F /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6F2DC71E4E1F22AC2AC9A /* AdConfig.swift */; };
+		8A4ACBF0006B4EA805B18946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42DB67CA5200EFFC4DCDDDD0 /* Assets.xcassets */; };
+		9CD6C624506C54F8B17914E9 /* BibleDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516913A89203A46AA4B718D /* BibleDailyTests.swift */; };
+		A136116FC4A69F9438E37692 /* Translations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F3B35CC21B14497402C561 /* Translations.swift */; };
+		B5817244F7B91E0BCEE075F5 /* bible.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 717D2D083ACF680A3DE5F0C0 /* bible.sqlite */; };
+		BB0B5CF88AD6DE6B5A486196 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4065DEE7FEF7D3D65EF907A /* Screens.swift */; };
+		DE4AB00C86956BC610F4FC7D /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7099B1BBF19905A3CA9778 /* ReaderView.swift */; };
+		E0F7BC8D8A1C64472D5375AF /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6821A9F7E22600129544B5 /* AdsManager.swift */; };
+		FDB47042D1C9FD2E1D06D4DC /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9E3EC0680A5D9201B2311A7D /* GoogleMobileAds */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40D3DDA2ADAACFC1D8B4EAB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89FB840BE530F5AB75072D22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3DF2C9ECFD9648DFEDB3036;
+			remoteInfo = BibleDaily;
+		};
+		962B7CEA147BCBAE3629FA16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89FB840BE530F5AB75072D22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3DF2C9ECFD9648DFEDB3036;
+			remoteInfo = BibleDaily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		067F2D27673D66082A22C4FA /* BibleDailyUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BibleDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06C16BB9C2E8F3830BA985D1 /* BibleDailyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BibleDailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1516913A89203A46AA4B718D /* BibleDailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDailyTests.swift; sourceTree = "<group>"; };
+		18CA7201AED4289C80C62271 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
+		272C2D42177F9B5660F4609E /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
+		42DB67CA5200EFFC4DCDDDD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65E6F2DC71E4E1F22AC2AC9A /* AdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
+		717D2D083ACF680A3DE5F0C0 /* bible.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = bible.sqlite; sourceTree = "<group>"; };
+		76F3B35CC21B14497402C561 /* Translations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translations.swift; sourceTree = "<group>"; };
+		83CD699F86527AA46B4E5A6E /* BibleDaily.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BibleDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E4FEAB193272E74C31D5F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		968219A6FF704C3287CDB15D /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		9C7099B1BBF19905A3CA9778 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
+		A4065DEE7FEF7D3D65EF907A /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
+		AC4C1702D156BDD0193BFC23 /* BibleDailyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDailyApp.swift; sourceTree = "<group>"; };
+		BC303BA583373CD7804BF72E /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		DC6821A9F7E22600129544B5 /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		DD16EE1D7120F91D2D2C3CAD /* BibleDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDailyUITests.swift; sourceTree = "<group>"; };
+		FB859BF5B391B44200EA71A2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A1C1204FDF61E9F31F20F33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB47042D1C9FD2E1D06D4DC /* GoogleMobileAds in Frameworks */,
+				1A145A52B90F7C5B07412EF3 /* GoogleUserMessagingPlatform in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		184B3E17CF03AAC8E1166B8B /* BibleDailyTests */ = {
+			isa = PBXGroup;
+			children = (
+				1516913A89203A46AA4B718D /* BibleDailyTests.swift */,
+			);
+			path = BibleDailyTests;
+			sourceTree = "<group>";
+		};
+		2A1505C73E9948E2C0D52529 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				18CA7201AED4289C80C62271 /* Books.swift */,
+				BC303BA583373CD7804BF72E /* Reminders.swift */,
+				272C2D42177F9B5660F4609E /* Stores.swift */,
+				76F3B35CC21B14497402C561 /* Translations.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		317250771394FBDFB2BF9027 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC4C1702D156BDD0193BFC23 /* BibleDailyApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		69B671C677830F6326FA6910 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				717D2D083ACF680A3DE5F0C0 /* bible.sqlite */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		703F3B7A6198B8BFC199345F /* BibleDaily */ = {
+			isa = PBXGroup;
+			children = (
+				42DB67CA5200EFFC4DCDDDD0 /* Assets.xcassets */,
+				94E4FEAB193272E74C31D5F7 /* Info.plist */,
+				B977344AB469F78FC7B77F4C /* Ads */,
+				317250771394FBDFB2BF9027 /* App */,
+				2A1505C73E9948E2C0D52529 /* Data */,
+				B2F1B6524B90FCEA95628155 /* Domain */,
+				69B671C677830F6326FA6910 /* Resources */,
+				D95F62C3E4A255FE5E5E93B7 /* UI */,
+			);
+			path = BibleDaily;
+			sourceTree = "<group>";
+		};
+		7970B6211E39DF3C74ED0434 = {
+			isa = PBXGroup;
+			children = (
+				703F3B7A6198B8BFC199345F /* BibleDaily */,
+				184B3E17CF03AAC8E1166B8B /* BibleDailyTests */,
+				A05A85C47FAA44C301E80162 /* BibleDailyUITests */,
+				9C59C1DC06387158693F8D2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C59C1DC06387158693F8D2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83CD699F86527AA46B4E5A6E /* BibleDaily.app */,
+				06C16BB9C2E8F3830BA985D1 /* BibleDailyTests.xctest */,
+				067F2D27673D66082A22C4FA /* BibleDailyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A05A85C47FAA44C301E80162 /* BibleDailyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD16EE1D7120F91D2D2C3CAD /* BibleDailyUITests.swift */,
+			);
+			path = BibleDailyUITests;
+			sourceTree = "<group>";
+		};
+		B2F1B6524B90FCEA95628155 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				968219A6FF704C3287CDB15D /* Domain.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B977344AB469F78FC7B77F4C /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				65E6F2DC71E4E1F22AC2AC9A /* AdConfig.swift */,
+				DC6821A9F7E22600129544B5 /* AdsManager.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
+		D95F62C3E4A255FE5E5E93B7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB859BF5B391B44200EA71A2 /* Common.swift */,
+				9C7099B1BBF19905A3CA9778 /* ReaderView.swift */,
+				A4065DEE7FEF7D3D65EF907A /* Screens.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4369866AEC6DF3A40670E0EF /* BibleDailyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D122D4C777F87751C41EBF0 /* Build configuration list for PBXNativeTarget "BibleDailyUITests" */;
+			buildPhases = (
+				CD4CEE93B12F690D943D64D9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B10F6E48009BD6E5C48396B0 /* PBXTargetDependency */,
+			);
+			name = BibleDailyUITests;
+			packageProductDependencies = (
+			);
+			productName = BibleDailyUITests;
+			productReference = 067F2D27673D66082A22C4FA /* BibleDailyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F3DF2C9ECFD9648DFEDB3036 /* BibleDaily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 838E5A1DAF281E65C0623561 /* Build configuration list for PBXNativeTarget "BibleDaily" */;
+			buildPhases = (
+				94D9D2971063A13EF6DBFE06 /* Sources */,
+				CDC3B7994A4A7643C4D98CDC /* Resources */,
+				1A1C1204FDF61E9F31F20F33 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BibleDaily;
+			packageProductDependencies = (
+				9E3EC0680A5D9201B2311A7D /* GoogleMobileAds */,
+				43A7E2E2C00BBC9420837695 /* GoogleUserMessagingPlatform */,
+			);
+			productName = BibleDaily;
+			productReference = 83CD699F86527AA46B4E5A6E /* BibleDaily.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEDF03077F7E5B8109CCB0CB /* BibleDailyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7A14ED12A9BCD9FCBE45B28 /* Build configuration list for PBXNativeTarget "BibleDailyTests" */;
+			buildPhases = (
+				9D2B92240218B52FECA21E12 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4984EF645E114F4240DB9320 /* PBXTargetDependency */,
+			);
+			name = BibleDailyTests;
+			packageProductDependencies = (
+			);
+			productName = BibleDailyTests;
+			productReference = 06C16BB9C2E8F3830BA985D1 /* BibleDailyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89FB840BE530F5AB75072D22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4369866AEC6DF3A40670E0EF = {
+						DevelopmentTeam = "";
+						TestTargetID = F3DF2C9ECFD9648DFEDB3036;
+					};
+					F3DF2C9ECFD9648DFEDB3036 = {
+						DevelopmentTeam = "";
+					};
+					FEDF03077F7E5B8109CCB0CB = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = B3ABB900E3152FFDE88E2D09 /* Build configuration list for PBXProject "BibleDaily" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7970B6211E39DF3C74ED0434;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				72134DFC85E62F127515E0BD /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				CEF2C3F586BD42319842B9B7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9C59C1DC06387158693F8D2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3DF2C9ECFD9648DFEDB3036 /* BibleDaily */,
+				FEDF03077F7E5B8109CCB0CB /* BibleDailyTests */,
+				4369866AEC6DF3A40670E0EF /* BibleDailyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDC3B7994A4A7643C4D98CDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A4ACBF0006B4EA805B18946 /* Assets.xcassets in Resources */,
+				B5817244F7B91E0BCEE075F5 /* bible.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94D9D2971063A13EF6DBFE06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73CD05DFD29012ECD679021F /* AdConfig.swift in Sources */,
+				E0F7BC8D8A1C64472D5375AF /* AdsManager.swift in Sources */,
+				0294B49BD0BF06AB0E01FDD3 /* BibleDailyApp.swift in Sources */,
+				2BF91DD2D1FFBCFD1BE77AA0 /* Books.swift in Sources */,
+				4F9A6BA49DEE9BAB5126988A /* Common.swift in Sources */,
+				6E9C86210EB9AF899104807B /* Domain.swift in Sources */,
+				DE4AB00C86956BC610F4FC7D /* ReaderView.swift in Sources */,
+				613048EF392A9BA80D78137B /* Reminders.swift in Sources */,
+				BB0B5CF88AD6DE6B5A486196 /* Screens.swift in Sources */,
+				0ED32669D1BBCE4CFEE07360 /* Stores.swift in Sources */,
+				A136116FC4A69F9438E37692 /* Translations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D2B92240218B52FECA21E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD6C624506C54F8B17914E9 /* BibleDailyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4CEE93B12F690D943D64D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34D14E48662AEB1926927FD4 /* BibleDailyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4984EF645E114F4240DB9320 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3DF2C9ECFD9648DFEDB3036 /* BibleDaily */;
+			targetProxy = 962B7CEA147BCBAE3629FA16 /* PBXContainerItemProxy */;
+		};
+		B10F6E48009BD6E5C48396B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3DF2C9ECFD9648DFEDB3036 /* BibleDaily */;
+			targetProxy = 40D3DDA2ADAACFC1D8B4EAB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08F4DD718DB809608DA4FB8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BibleDaily;
+			};
+			name = Release;
+		};
+		100F5F6E818C1A2225CE321B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		142AA2E210812916F2E84C79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BibleDaily.app/BibleDaily";
+			};
+			name = Debug;
+		};
+		74573716BADF2EC1B3ABBC9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BibleDaily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily;
+				PRODUCT_NAME = BibleDaily;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ABB0D760AE776E2DEB67A625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BibleDaily/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily;
+				PRODUCT_NAME = BibleDaily;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E174959691D15F008CA331E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BibleDaily;
+			};
+			name = Debug;
+		};
+		F01430ADAA39F65A536EA6FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F2AB4C810764CE6C0D2797FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertlangat.bibledaily.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BibleDaily.app/BibleDaily";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D122D4C777F87751C41EBF0 /* Build configuration list for PBXNativeTarget "BibleDailyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E174959691D15F008CA331E4 /* Debug */,
+				08F4DD718DB809608DA4FB8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		838E5A1DAF281E65C0623561 /* Build configuration list for PBXNativeTarget "BibleDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74573716BADF2EC1B3ABBC9B /* Debug */,
+				ABB0D760AE776E2DEB67A625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B3ABB900E3152FFDE88E2D09 /* Build configuration list for PBXProject "BibleDaily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01430ADAA39F65A536EA6FA /* Debug */,
+				100F5F6E818C1A2225CE321B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D7A14ED12A9BCD9FCBE45B28 /* Build configuration list for PBXNativeTarget "BibleDailyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142AA2E210812916F2E84C79 /* Debug */,
+				F2AB4C810764CE6C0D2797FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72134DFC85E62F127515E0BD /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+		CEF2C3F586BD42319842B9B7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-user-messaging-platform";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43A7E2E2C00BBC9420837695 /* GoogleUserMessagingPlatform */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEF2C3F586BD42319842B9B7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */;
+			productName = GoogleUserMessagingPlatform;
+		};
+		9E3EC0680A5D9201B2311A7D /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72134DFC85E62F127515E0BD /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 89FB840BE530F5AB75072D22 /* Project object */;
+}
