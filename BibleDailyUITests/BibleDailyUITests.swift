@@ -190,8 +190,14 @@ final class BibleDailyUITests: XCTestCase {
         // Google's consent flow first shows its tracking explainer ("Continue"), then Apple's prompt.
         let explainer = app.buttons["Continue"]
         if explainer.waitForExistence(timeout: 20) {
+            sleep(2) // the form is a web page; let it finish loading
             screenshot(app, "11a_consent_explainer")
-            explainer.tap()
+            var tries = 0
+            while explainer.exists && tries < 5 {
+                explainer.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+                sleep(2)
+                tries += 1
+            }
         }
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         let deny = springboard.buttons["Ask App Not to Track"]
