@@ -25,12 +25,12 @@ struct ReaderView: View {
                             .font(.title2.bold())
                             .padding(.horizontal, 16).padding(.top, 8).padding(.bottom, 6)
                             .accessibilityAddTraits(.isHeader)
-                            .id(0)
+                            .id("top-\(state.chapterKey)")
                         ForEach(state.verses) { v in
                             VerseRow(verse: v, reference: "\(bookName) \(v.chapter):\(v.verse)",
                                      mark: marks.mark(VerseKey(book: v.book, chapter: v.chapter, verse: v.verse)),
                                      size: settings.textSize, dark: colorScheme == .dark)
-                                .id(v.verse)
+                                .id(v.id)
                                 .onTapGesture { actionVerse = v }
                                 .onAppear { visible.insert(v.verse) }
                                 .onDisappear { visible.remove(v.verse) }
@@ -40,6 +40,8 @@ struct ReaderView: View {
                             .font(.footnote).foregroundStyle(.secondary)
                             .padding(16)
                     }
+                    // A fresh layout per chapter, so rows of the previous chapter are never reused.
+                    .id(state.loadedKey)
                 }
                 .onChange(of: state.scrollTarget) { scroll(proxy) }
                 .onChange(of: state.loadedKey) {
@@ -138,7 +140,8 @@ struct ReaderView: View {
     private func scroll(_ proxy: ScrollViewProxy) {
         guard let t = state.scrollTarget, t.book == state.book, t.chapter == state.chapter,
               state.loadedKey == state.chapterKey, !state.verses.isEmpty else { return }
-        let id = t.verse <= 1 ? 0 : (state.verses.first { $0.verse >= t.verse }?.verse ?? 0)
+        let id: String = t.verse <= 1 ? "top-\(state.chapterKey)"
+            : (state.verses.first { $0.verse >= t.verse }?.id ?? "top-\(state.chapterKey)")
         DispatchQueue.main.async {
             proxy.scrollTo(id, anchor: .top)
             if state.scrollTarget?.token == t.token { state.scrollTarget = nil }

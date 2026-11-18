@@ -47,8 +47,11 @@ struct HomeView: View {
                     .accessibilityIdentifier("votd_text")
                 Text("\(label) (\(t.abbreviation))").font(.headline).accessibilityIdentifier("votd_ref")
                 HStack(spacing: 18) {
-                    Button("Read chapter") { state.open(book: ref.book.number, chapter: ref.chapter, verse: ref.verse) }
+                    Button { state.open(book: ref.book.number, chapter: ref.chapter, verse: ref.verse) } label: {
+                        Text("Read chapter").foregroundStyle(Color(.systemBackground))
+                    }
                         .buttonStyle(.borderedProminent)
+                        .tint(.primary)
                         .accessibilityIdentifier("votd_read")
                     Button { copyToClipboard(share) } label: { Image(systemName: "doc.on.doc") }
                         .accessibilityLabel("Copy verse of the day")
@@ -112,6 +115,12 @@ struct SearchView: View {
     @State private var query = ""
     @State private var results: SearchResults?
     @State private var searching = false
+    @FocusState private var fieldFocused: Bool
+
+    private func open(_ book: Int, _ chapter: Int, _ verse: Int?) {
+        fieldFocused = false
+        state.open(book: book, chapter: chapter, verse: verse)
+    }
 
     var body: some View {
         NavigationStack {
@@ -123,6 +132,7 @@ struct SearchView: View {
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
                             .submitLabel(.search)
+                            .focused($fieldFocused)
                             .accessibilityLabel("Search words, phrases or references")
                             .accessibilityIdentifier("search_field")
                         if !query.isEmpty {
@@ -142,7 +152,7 @@ struct SearchView: View {
                             .listRowSeparator(.hidden)
                         if let hit = r.reference {
                             Button {
-                                state.open(book: hit.reference.book.number, chapter: hit.reference.chapter, verse: hit.reference.verse)
+                                open(hit.reference.book.number, hit.reference.chapter, hit.reference.verse)
                             } label: {
                                 OutlinedCard(strong: true) {
                                     VStack(alignment: .leading, spacing: 4) {
@@ -159,7 +169,7 @@ struct SearchView: View {
                         }
                         ForEach(r.verses) { v in
                             let label = "\(settings.translation.bookName(Books.book(v.book))) \(v.chapter):\(v.verse)"
-                            Button { state.open(book: v.book, chapter: v.chapter, verse: v.verse) } label: {
+                            Button { open(v.book, v.chapter, v.verse) } label: {
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(label).font(.subheadline.bold())
                                     Text(emphasized(v.text, r.terms))
