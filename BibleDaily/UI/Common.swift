@@ -122,16 +122,22 @@ struct NoteEditor: View {
     let initial: String
     var onSave: (String?) -> Void
     @State private var text = ""
+    @FocusState private var focused: Bool
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
-            TextEditor(text: $text)
-                .padding(8)
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.secondary.opacity(0.4)))
-                .padding()
-                .accessibilityLabel("Your note")
-                .accessibilityIdentifier("note_field")
+            VStack {
+                TextField("Write your note", text: $text, axis: .vertical)
+                    .lineLimit(5...14)
+                    .focused($focused)
+                    .padding(10)
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.secondary.opacity(0.4)))
+                    .accessibilityLabel("Your note")
+                    .accessibilityIdentifier("note_field")
+                Spacer()
+            }
+            .padding()
                 .navigationTitle("Note · \(reference)")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -146,7 +152,10 @@ struct NoteEditor: View {
                         }
                     }
                 }
-                .onAppear { text = initial }
+                .onAppear {
+                    text = initial
+                    focused = true
+                }
         }
     }
 }

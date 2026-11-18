@@ -47,11 +47,16 @@ final class BibleDailyUITests: XCTestCase {
         waitForTitle(app, title)
     }
 
+    /// Lists and grids are lazy, so scroll until the element exists and can be tapped.
     private func tapUntilHittable(_ app: XCUIApplication, _ id: String) {
         let e = element(app, id)
-        XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing")
+        _ = e.waitForExistence(timeout: 3)
         var tries = 0
-        while !e.isHittable && tries < 10 { app.swipeUp(); tries += 1 }
+        while !(e.exists && e.isHittable) && tries < 15 {
+            app.swipeUp(velocity: .slow)
+            tries += 1
+        }
+        XCTAssertTrue(e.exists, "\(id) missing")
         e.tap()
     }
 
@@ -140,7 +145,6 @@ final class BibleDailyUITests: XCTestCase {
         element(app, "action_note").tap()
         let note = element(app, "note_field")
         XCTAssertTrue(note.waitForExistence(timeout: 5))
-        note.tap()
         note.typeText("Persistence test note")
         element(app, "note_save").tap()
 

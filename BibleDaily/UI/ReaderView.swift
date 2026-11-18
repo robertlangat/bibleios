@@ -6,8 +6,6 @@ struct ReaderView: View {
     @EnvironmentObject private var marks: MarksStore
     @Environment(\.colorScheme) private var colorScheme
 
-    @State private var verses: [Verse] = []
-    @State private var loadedKey = ""
     @State private var showPicker = false
     @State private var actionVerse: Verse?
     @State private var noteVerse: Verse?
@@ -17,7 +15,6 @@ struct ReaderView: View {
     private var translation: Translation { settings.translation }
     private var bookName: String { translation.bookName(Books.book(state.book)) }
     private var title: String { "\(bookName) \(state.chapter)" }
-    private var chapterKey: String { "\(state.book)-\(state.chapter)" }
 
     var body: some View {
         NavigationStack {
@@ -29,7 +26,7 @@ struct ReaderView: View {
                             .padding(.horizontal, 16).padding(.top, 8).padding(.bottom, 6)
                             .accessibilityAddTraits(.isHeader)
                             .id(0)
-                        ForEach(verses) { v in
+                        ForEach(state.verses) { v in
                             VerseRow(verse: v, reference: "\(bookName) \(v.chapter):\(v.verse)",
                                      mark: marks.mark(VerseKey(book: v.book, chapter: v.chapter, verse: v.verse)),
                                      size: settings.textSize, dark: colorScheme == .dark)
@@ -45,14 +42,16 @@ struct ReaderView: View {
                     }
                 }
                 .onChange(of: state.scrollTarget) { scroll(proxy) }
-                .onChange(of: loadedKey) { scroll(proxy) }
+                .onChange(of: state.loadedKey) {
+                    visible = []
+                    scroll(proxy)
+                }
                 .onAppear { scroll(proxy) }
             }
-            .task(id: chapterKey) { load() }
             .task(id: visible.min()) {
                 // Remember the first visible verse as the reading position.
                 try? await Task.sleep(for: .milliseconds(700))
-                guard !Task.isCancelled, state.scrollTarget == nil, let v = visible.min(), loadedKey == chapterKey else { return }
+                guard !Task.isCancelled, state.scrollTarget == nil, let v = visible.min(), state.loadedKey == state.chapterKey else { return }
                 settings.savePosition(book: state.book, chapter: state.chapter, verse: v)
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -136,16 +135,10 @@ struct ReaderView: View {
         .background(.bar)
     }
 
-    private func load() {
-        verses = BibleStore.shared.chapter(translation.id, book: state.book, chapter: state.chapter)
-        visible = []
-        loadedKey = chapterKey
-    }
-
     private func scroll(_ proxy: ScrollViewProxy) {
         guard let t = state.scrollTarget, t.book == state.book, t.chapter == state.chapter,
-              loadedKey == chapterKey, !verses.isEmpty else { return }
-        let id = t.verse <= 1 ? 0 : (verses.first { $0.verse >= t.verse }?.verse ?? 0)
+              state.loadedKey == state.chapterKey, !state.verses.isEmpty else { return }
+        let id = t.verse <= 1 ? 0 : (state.verses.first { $0.verse >= t.verse }?.verse ?? 0)
         DispatchQueue.main.async {
             proxy.scrollTo(id, anchor: .top)
             if state.scrollTarget?.token == t.token { state.scrollTarget = nil }

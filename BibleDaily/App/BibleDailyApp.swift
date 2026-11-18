@@ -60,6 +60,9 @@ final class AppState: ObservableObject {
     @Published private(set) var chapter: Int
     @Published var scrollTarget: ScrollTarget?
     @Published private(set) var today = Date()
+    /// Verses of the chapter currently in the reader (loaded here so they never go stale).
+    @Published private(set) var verses: [Verse] = []
+    @Published private(set) var loadedKey = ""
     private let settings: SettingsStore
 
     init(settings: SettingsStore) {
@@ -68,12 +71,21 @@ final class AppState: ObservableObject {
         book = b
         chapter = min(max(settings.lastChapter, 1), Books.book(b).chapters)
         scrollTarget = ScrollTarget(book: book, chapter: chapter, verse: max(settings.lastVerse, 1))
+        loadVerses()
+    }
+
+    var chapterKey: String { "\(book)-\(chapter)" }
+
+    private func loadVerses() {
+        verses = BibleStore.shared.chapter(settings.translationId, book: book, chapter: chapter)
+        loadedKey = chapterKey
     }
 
     /// Opens a chapter in the reader (scrolled to `verse`) and switches to the Read tab.
     func open(book: Int, chapter: Int, verse: Int? = nil, switchTab: Bool = true) {
         self.book = book
         self.chapter = chapter
+        loadVerses()
         scrollTarget = ScrollTarget(book: book, chapter: chapter, verse: verse ?? 1)
         settings.savePosition(book: book, chapter: chapter, verse: verse ?? 1)
         if switchTab { tab = .read }
