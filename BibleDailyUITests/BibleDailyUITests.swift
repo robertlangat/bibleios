@@ -216,10 +216,14 @@ final class BibleDailyUITests: XCTestCase {
 
         app.tabBars.buttons["Read"].tap()
         sleep(8) // let the interstitial finish loading
-        for _ in 0..<3 { app.buttons["next_chapter"].tap(); sleep(1) }
-        sleep(4)
+        // Move chapters until the interstitial covers the screen (never tap the ad itself).
+        var adShown = false
+        for _ in 0..<3 {
+            app.buttons["next_chapter"].tap()
+            sleep(3)
+            if !app.buttons["next_chapter"].isHittable { adShown = true; break }
+        }
         screenshot(app, "12_interstitial_ad")
-        // While the interstitial covers the screen, the reader's chapter bar is not hittable.
-        XCTAssertFalse(app.buttons["next_chapter"].isHittable, "Interstitial did not appear")
+        XCTAssertTrue(adShown, "Interstitial did not appear. Ads status: \(element(app, "ads_status").label)")
     }
 }
