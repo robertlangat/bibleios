@@ -109,16 +109,16 @@ struct RootView: View {
 
     var body: some View {
         TabView(selection: $state.tab) {
-            HomeView().withBanner()
+            HomeView()
                 .tabItem { Label("Home", systemImage: "house") }
                 .tag(AppState.Tab.home)
-            ReaderView().withBanner()
+            ReaderView()
                 .tabItem { Label("Read", systemImage: "book") }
                 .tag(AppState.Tab.read)
-            SearchView().withBanner()
+            SearchView()
                 .tabItem { Label("Search", systemImage: "magnifyingglass") }
                 .tag(AppState.Tab.search)
-            SavedView().withBanner()
+            SavedView()
                 .tabItem { Label("Saved", systemImage: "bookmark") }
                 .tag(AppState.Tab.saved)
         }
@@ -137,7 +137,8 @@ struct RootView: View {
 }
 
 extension View {
-    /// Adds the adaptive banner just above the tab bar (takes no space until an ad loads).
+    /// Adds the adaptive banner at the bottom of a screen's content, just above the tab bar.
+    /// Applied inside each NavigationStack so the banner never overlaps the screen's own controls.
     func withBanner() -> some View {
         safeAreaInset(edge: .bottom, spacing: 0) { BannerSlot() }
     }

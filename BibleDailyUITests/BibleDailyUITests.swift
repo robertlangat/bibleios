@@ -215,6 +215,11 @@ final class BibleDailyUITests: XCTestCase {
         screenshot(app, "11_banner_ad")
 
         app.tabBars.buttons["Read"].tap()
+        // The banner must sit below the chapter bar, never on top of it.
+        let banner = element(app, "ad_banner_loaded")
+        XCTAssertTrue(banner.waitForExistence(timeout: 30))
+        XCTAssertLessThanOrEqual(app.buttons["next_chapter"].frame.maxY, banner.frame.minY + 1, "Banner overlaps the chapter bar")
+        screenshot(app, "11c_reader_with_banner")
         sleep(8) // let the interstitial finish loading
         // Move chapters until the interstitial covers the screen (never tap the ad itself).
         var adShown = false

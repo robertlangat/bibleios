@@ -18,6 +18,7 @@ struct HomeView: View {
                 }
                 .padding(16)
             }
+            .withBanner()
             .navigationTitle("Bible Daily")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -187,6 +188,7 @@ struct SearchView: View {
             }
             .listStyle(.plain)
             .overlay { if searching { ProgressView() } }
+            .withBanner()
             .navigationTitle("Search")
             .task(id: query) {
                 let q = query
@@ -261,6 +263,7 @@ struct SavedView: View {
                     .listStyle(.plain)
                 }
             }
+            .withBanner()
             .navigationTitle("Saved")
         }
     }

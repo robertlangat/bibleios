@@ -80,7 +80,13 @@ struct ReaderView: View {
                         .accessibilityLabel("Increase text size")
                 }
             }
-            .safeAreaInset(edge: .bottom) { chapterBar }
+            // Chapter controls and the banner share one inset so the ad can never cover the controls.
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                VStack(spacing: 0) {
+                    chapterBar
+                    BannerSlot()
+                }
+            }
             .sheet(isPresented: $showPicker) {
                 BookPicker(translation: translation, currentBook: state.book) { b, c in
                     showPicker = false
