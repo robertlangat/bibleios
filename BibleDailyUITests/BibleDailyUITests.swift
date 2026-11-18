@@ -187,9 +187,18 @@ final class BibleDailyUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["-resetData"]
         app.launch()
+        // Google's consent flow first shows its tracking explainer ("Continue"), then Apple's prompt.
+        let explainer = app.buttons["Continue"]
+        if explainer.waitForExistence(timeout: 20) {
+            screenshot(app, "11a_consent_explainer")
+            explainer.tap()
+        }
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         let deny = springboard.buttons["Ask App Not to Track"]
-        if deny.waitForExistence(timeout: 20) { deny.tap() }
+        if deny.waitForExistence(timeout: 15) {
+            screenshot(app, "11b_tracking_prompt")
+            deny.tap()
+        }
 
         XCTAssertTrue(element(app, "ad_banner_loaded").waitForExistence(timeout: 60), "Test banner did not load")
         screenshot(app, "11_banner_ad")
