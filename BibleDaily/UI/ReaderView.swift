@@ -10,6 +10,7 @@ struct ReaderView: View {
     @State private var actionVerse: Verse?
     @State private var noteVerse: Verse?
     @State private var pendingNote: Verse?
+    @State private var lastNoted: Verse?
     @State private var visible = Set<Int>()
 
     private var translation: Translation { settings.translation }
@@ -87,7 +88,7 @@ struct ReaderView: View {
                 }
             }
             .sheet(item: $actionVerse, onDismiss: {
-                if let p = pendingNote { pendingNote = nil; noteVerse = p }
+                if let p = pendingNote { pendingNote = nil; lastNoted = p; noteVerse = p }
             }) { v in
                 let ref = "\(bookName) \(v.chapter):\(v.verse)"
                 VerseActionsSheet(verse: v, reference: ref,
@@ -96,7 +97,10 @@ struct ReaderView: View {
                     actionVerse = nil
                 }
             }
-            .sheet(item: $noteVerse) { v in
+            .sheet(item: $noteVerse, onDismiss: {
+                // Return to the annotated verse (the list can lose its place behind the keyboard).
+                if let v = lastNoted { state.scrollTarget = AppState.ScrollTarget(book: v.book, chapter: v.chapter, verse: v.verse) }
+            }) { v in
                 let key = VerseKey(book: v.book, chapter: v.chapter, verse: v.verse)
                 NoteEditor(reference: "\(bookName) \(v.chapter):\(v.verse)", initial: marks.mark(key)?.note ?? "") { note in
                     marks.update(key) { $0.note = note }
