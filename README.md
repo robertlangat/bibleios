@@ -31,24 +31,26 @@ The text is in `BibleDaily/Resources/bible.sqlite`, a read-only file built by `s
 
 Bookmarks, highlights and notes are keyed by book, chapter and verse, so they carry over between translations.
 
-## Ads (AdMob): currently Google TEST ads
+## Ads (AdMob)
 
 | | ID | Where |
 |---|---|---|
-| App ID | `ca-app-pub-3940256099942544~1458002511` (Google test) | `GADApplicationIdentifier` in `project.yml` |
-| Banner | `ca-app-pub-3940256099942544/2435281174` (Google test) | `BibleDaily/Ads/AdConfig.swift` |
-| Interstitial | `ca-app-pub-3940256099942544/4411468910` (Google test) | `BibleDaily/Ads/AdConfig.swift` |
+| App ID | `ca-app-pub-8306955081407788~4913320752` | `GADApplicationIdentifier` in `project.yml` |
+| Banner | `ca-app-pub-8306955081407788/9339203814` | `BibleDaily/Ads/AdConfig.swift` |
+| Interstitial | `ca-app-pub-8306955081407788/8802971015` | `BibleDaily/Ads/AdConfig.swift` |
 
 How the ads behave:
-- **Banner:** sits above the tab bar, and takes no space until an ad loads.
+- **Banner:** sits above the tab bar, below the reader's chapter controls, so it can never cover them.
 - **Interstitial:** at most once every 3 chapter moves, and at least 2 minutes apart.
-- **Consent:** the app runs Google's consent prompt, then Apple's App Tracking Transparency prompt, before any ads load.
+- **Consent:** Google's consent prompt and Apple's App Tracking Transparency prompt run before any ad loads.
+
+**Protect your AdMob account:**
+- **CI uses test units:** the automated ad test launches the app with `-useTestAdUnits`, which switches to Google's test units, and every other UI test runs with ads off. CI never requests your real ads.
+- **Test devices:** on your own iPhone, add it as a test device in AdMob › Settings › Test devices, and never tap your own ads.
 
 **Before App Store release:**
-1. Create an **iOS** app in AdMob. Your Android ad units don't work on iPhone.
-2. Replace the three test IDs above with the new iOS App ID and unit IDs.
-3. Add Google's full `SKAdNetworkItems` list to `project.yml`.
-4. Create the consent messages in AdMob › Privacy & messaging.
+- Add Google's full `SKAdNetworkItems` list to `project.yml` (only Google's own ID is included now).
+- Create the consent messages in AdMob › Privacy & messaging (European regulations and, if you want, US state regulations), plus the IDFA explainer.
 
 ## Build
 

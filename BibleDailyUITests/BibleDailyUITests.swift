@@ -181,11 +181,12 @@ final class BibleDailyUITests: XCTestCase {
         XCTAssertTrue(app.switches["reminder_switch"].exists || element(app, "reminder_switch").exists)
     }
 
-    /// Ads ON (Google test units): answer Apple's tracking prompt, then check the banner loads and
+    /// Ads ON, with Google's test units (`-useTestAdUnits`, so CI never requests the real ads):
+    /// answer Apple's tracking prompt, then check the banner loads and
     /// an interstitial appears after 3 chapter moves.
     func test7_TestAdsLoad() {
         let app = XCUIApplication()
-        app.launchArguments = ["-resetData", "-adsDebug"]
+        app.launchArguments = ["-resetData", "-adsDebug", "-useTestAdUnits"]
         app.launch()
         // Google's consent flow first shows its tracking explainer ("Continue"), then Apple's prompt.
         let explainer = app.buttons["Continue"]

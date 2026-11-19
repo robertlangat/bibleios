@@ -46,9 +46,8 @@ targets:
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown]
         UIRequiresFullScreen: true
         ITSAppUsesNonExemptEncryption: false
-        # AdMob — Google's iOS TEST app ID. Replace with your iOS AdMob App ID before release
-        # (and the unit IDs in BibleDaily/Ads/AdConfig.swift).
-        GADApplicationIdentifier: ca-app-pub-3940256099942544~1458002511
+        # AdMob iOS App ID for Bible Daily (ad unit IDs are in BibleDaily/Ads/AdConfig.swift).
+        GADApplicationIdentifier: ca-app-pub-8306955081407788~4913320752
         NSUserTrackingUsageDescription: Your data will be used to show you more relevant ads. Bible Daily works fully without tracking.
         SKAdNetworkItems:
           - SKAdNetworkIdentifier: cstr6suwn9.skadnetwork
