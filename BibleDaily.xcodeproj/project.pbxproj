@@ -23,6 +23,7 @@
 		BB0B5CF88AD6DE6B5A486196 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4065DEE7FEF7D3D65EF907A /* Screens.swift */; };
 		DE4AB00C86956BC610F4FC7D /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7099B1BBF19905A3CA9778 /* ReaderView.swift */; };
 		E0F7BC8D8A1C64472D5375AF /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6821A9F7E22600129544B5 /* AdsManager.swift */; };
+		F0E856CE6DC04BB15CDEEB20 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DB3408E80E573C2FCF350FDE /* PrivacyInfo.xcprivacy */; };
 		FDB47042D1C9FD2E1D06D4DC /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 9E3EC0680A5D9201B2311A7D /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		A4065DEE7FEF7D3D65EF907A /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		AC4C1702D156BDD0193BFC23 /* BibleDailyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDailyApp.swift; sourceTree = "<group>"; };
 		BC303BA583373CD7804BF72E /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		DB3408E80E573C2FCF350FDE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		DC6821A9F7E22600129544B5 /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		DD16EE1D7120F91D2D2C3CAD /* BibleDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleDailyUITests.swift; sourceTree = "<group>"; };
 		FB859BF5B391B44200EA71A2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				42DB67CA5200EFFC4DCDDDD0 /* Assets.xcassets */,
 				94E4FEAB193272E74C31D5F7 /* Info.plist */,
+				DB3408E80E573C2FCF350FDE /* PrivacyInfo.xcprivacy */,
 				B977344AB469F78FC7B77F4C /* Ads */,
 				317250771394FBDFB2BF9027 /* App */,
 				2A1505C73E9948E2C0D52529 /* Data */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4ACBF0006B4EA805B18946 /* Assets.xcassets in Resources */,
+				F0E856CE6DC04BB15CDEEB20 /* PrivacyInfo.xcprivacy in Resources */,
 				B5817244F7B91E0BCEE075F5 /* bible.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
