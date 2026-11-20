@@ -1,0 +1,128 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "A7E4DBC0-F917-46C6-9890-E12A4CE59C82.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "01_home_0_D8A02508-7D37-48D6-8EEA-2DAC4BA3FF55.png",
+        "timestamp" : 1795179146.89
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test1_FirstLaunchShowsVerseOfDay()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test1_FirstLaunchShowsVerseOfDay"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "70513898-BA45-4AA6-94E8-F85835820F23.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "02_reader_genesis_1_0_DD14E83D-BEE2-47AB-978A-8D4F1E5A80B4.png",
+        "timestamp" : 1795179156.639
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test2_ChapterNavigation()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test2_ChapterNavigation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "D3DF3EDB-E4F2-4C2B-8C73-7123770B852D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "04_search_phrase_0_5F4C0924-9263-41BA-BE9C-A1C4D865BB20.png",
+        "timestamp" : 1795179317.901
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "9E6C2C0C-F384-43BF-8D6A-85F750A0D3FC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "03_john_3_16_0_BA345852-6FAA-46A5-A93C-DB292B02E237.png",
+        "timestamp" : 1795179237.737
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test3_SearchReferences()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test3_SearchReferences"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "A64C5039-42F9-4C58-A30E-A03A848A1FD2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "06_share_sheet_0_0F9C6C58-4AF4-4206-8F55-3DA8C8F90270.png",
+        "timestamp" : 1795179357.614
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "E0019A19-83F3-425D-81C7-B08255F4C3BF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "05_verse_actions_0_41F713F3-5A1A-4005-BCDA-ADE25F91E33C.png",
+        "timestamp" : 1795179348.542
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test4_ShareVerse()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test4_ShareVerse"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "B6A23923-C8FC-4686-927E-2B14ECDA8652.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "09_reader_after_restart_0_2C002E5D-CDE5-4FD6-AE9D-D4DAE822CA28.png",
+        "timestamp" : 1795179427.539
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "ACB0CAC7-8108-483C-BC39-982169F57E08.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "08_saved_notes_after_restart_0_BFBBE7DC-0520-4C18-841B-B1ECFE04990B.png",
+        "timestamp" : 1795179420.769
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "F88D8735-5C7E-4EEB-AC45-F889C649AA69.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "07_marked_verse_0_DA823E71-495A-46C0-AFE9-3CB3B084B12E.png",
+        "timestamp" : 1795179403.577
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test5_NotesAndPositionSurviveRestart()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test5_NotesAndPositionSurviveRestart"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "9382144F-8314-4BFE-B115-59E7D63CDD75",
+        "deviceName" : "iPhone 17 Pro Max",
+        "exportedFileName" : "D8FFE6B4-7089-4A88-B716-CD5AE1D7F559.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "10_settings_dark_0_98039E45-A1CE-4083-B3BF-3B734F6698E0.png",
+        "timestamp" : 1795179439.674
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test6_DarkModeAndSettings()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test6_DarkModeAndSettings"
+  }
+]
