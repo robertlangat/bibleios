@@ -1,0 +1,143 @@
+name: App Store / TestFlight upload
+
+# Builds a signed Release build and uploads it to App Store Connect (it then appears in TestFlight).
+# Run it from the Actions tab ("Run workflow"), or by pushing to the `release` branch.
+#
+# Needs these repository secrets (Settings > Secrets and variables > Actions):
+#   APPLE_TEAM_ID       10-character Team ID (developer.apple.com > Account > Membership details)
+#   ASC_KEY_ID          App Store Connect API key ID (Users and Access > Integrations > App Store Connect API)
+#   ASC_ISSUER_ID       Issuer ID shown above the keys list on that page
+#   ASC_PRIVATE_KEY     Full text of the downloaded AuthKey_XXXXXXXXXX.p8 file
+# The API key must have the Admin role (needed for Apple's cloud-managed distribution certificate).
+on:
+  workflow_dispatch:
+  push:
+    branches: [release]
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    name: Build, sign and upload
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+      BUILD_NUMBER: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the App Store Connect secrets
+        run: |
+          missing=""
+          for v in APPLE_TEAM_ID ASC_KEY_ID ASC_ISSUER_ID ASC_PRIVATE_KEY; do
+            [ -n "${!v}" ] || missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing (see the top of this workflow file / README)."
+            exit 1
+          fi
+          echo "All secrets present. Build number will be $BUILD_NUMBER."
+
+      - name: Select newest Xcode
+        run: |
+          X=$(ls -d /Applications/Xcode_*.app | grep -v -i beta | sort -V | tail -1)
+          sudo xcode-select -s "$X"
+          xcodebuild -version
+
+      - name: Generate Xcode project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+
+      - name: Install the API key
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          printf '%s\n' "$ASC_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8
+          echo "KEY_PATH=$HOME/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8" >> $GITHUB_ENV
+
+      - name: Archive (Release, automatic signing)
+        run: |
+          set -o pipefail
+          xcodebuild archive -project BibleDaily.xcodeproj -scheme BibleDaily -configuration Release \
+            -destination "generic/platform=iOS" -archivePath build/BibleDaily.xcarchive \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            | tee archive.log | grep -E "error:|warning: .*(sign|provision)|\*\* ARCHIVE" || true
+          grep -q "\*\* ARCHIVE SUCCEEDED \*\*" archive.log
+          ls build/BibleDaily.xcarchive/Products/Applications/BibleDaily.app | grep -E "PrivacyInfo|bible.sqlite|Info.plist"
+
+      - name: Export signed IPA
+        run: |
+          set -o pipefail
+          sed "s/TEAM_ID_PLACEHOLDER/$APPLE_TEAM_ID/" ExportOptions.plist > build/ExportOptions.plist
+          xcodebuild -exportArchive -archivePath build/BibleDaily.xcarchive -exportPath build/export \
+            -exportOptionsPlist build/ExportOptions.plist -allowProvisioningUpdates \
+            -authenticationKeyPath "$KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            | tee export.log | grep -E "error:|\*\* EXPORT" || true
+          grep -q "\*\* EXPORT SUCCEEDED \*\*" export.log
+          ls -la build/export
+
+      - name: Upload to App Store Connect
+        run: |
+          xcrun altool --upload-app -f build/export/BibleDaily.ipa -t ios \
+            --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID" --output-format normal 2>&1 | tee upload.log
+          grep -q -i -E "No errors uploading|UPLOAD SUCCEEDED" upload.log
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Bible Daily iOS upload"
+            echo "- Version 1.0.0, build $BUILD_NUMBER"
+            echo "- After Apple finishes processing (usually 5-30 minutes) the build appears in App Store Connect > TestFlight."
+          } >> $GITHUB_STEP_SUMMARY
+          rm -f "$KEY_PATH"
+
+  screenshots:
+    name: App Store screenshots (6.9-inch iPhone)
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select newest Xcode
+        run: |
+          X=$(ls -d /Applications/Xcode_*.app | grep -v -i beta | sort -V | tail -1)
+          sudo xcode-select -s "$X"
+      - run: brew install xcodegen && xcodegen generate
+      - name: Pick a Pro Max simulator
+        run: |
+          ID=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys,re
+          d=json.load(sys.stdin)["devices"]; best=None
+          for rt,devs in d.items():
+              m=re.search(r"iOS-(\d+)-(\d+)",rt)
+              if not m: continue
+              v=(int(m.group(1)),int(m.group(2)))
+              for x in devs:
+                  if x["name"].startswith("iPhone") and "Pro Max" in x["name"]:
+                      if best is None or v>best[0]: best=(v,x["udid"],x["name"])
+          print(best[1]); print(best, file=sys.stderr)')
+          echo "SIM_ID=$ID" >> $GITHUB_ENV
+          xcrun simctl boot "$ID" || true
+          xcrun simctl status_bar "$ID" override --time "9:41" --batteryState charged --batteryLevel 100 --wifiBars 3 --cellularBars 4 || true
+      - name: Run UI tests and collect screenshots
+        run: |
+          xcodebuild test -project BibleDaily.xcodeproj -scheme BibleDaily -destination "id=$SIM_ID" \
+            -only-testing:BibleDailyUITests -skip-testing:BibleDailyUITests/BibleDailyUITests/test7_TestAdsLoad \
+            -resultBundlePath shots.xcresult CODE_SIGNING_ALLOWED=NO | grep -E "Test Case .*(passed|failed)|\*\* TEST" || true
+          mkdir -p out
+          xcrun xcresulttool export attachments --path shots.xcresult --output-path out
+      - name: Publish to the app-store-screenshots branch
+        run: |
+          cd out
+          git init -q -b app-store-screenshots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "App Store screenshots for ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" app-store-screenshots
