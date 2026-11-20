@@ -1,0 +1,32 @@
+2026-11-20 13:18:53.668841+0000 BibleDaily[3958:18432] [Client] Synchronous remote object proxy returned error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-11-20 13:18:53.673979+0000 BibleDaily[3958:18432] [Client] Synchronous remote object proxy returned error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+Ads: consent update error: Failed to read publisher's account configuration; no form(s) configured for the input app ID. Verify that you have configured one or more forms for this application and try again. Received app ID: `ca-app-pub-8306955081407788~4913320752`.
+Test Case '-[BibleDailyTests.BundledBibleTests testEveryVerseOfTheDayExists]' passed (0.085 seconds).
+Test Case '-[BibleDailyTests.BundledBibleTests testKeyVerses]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.BundledBibleTests testSearch]' passed (0.054 seconds).
+Test Case '-[BibleDailyTests.BundledBibleTests testVerseCountAndEveryChapterPresent]' passed (0.008 seconds).
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.147 (0.149) seconds
+Test Case '-[BibleDailyTests.ReferenceParserTests testJohnFullAndAbbreviated]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.ReferenceParserTests testLabels]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.ReferenceParserTests testNumberedBooksAndRanges]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.ReferenceParserTests testPsalmsAndChapters]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.ReferenceParserTests testWordsAreNotReferences]' passed (0.001 seconds).
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.168) seconds
+Test Case '-[BibleDailyTests.SearchAndShareTests testNormalizeMatchesDatabaseRules]' passed (0.005 seconds).
+Test Case '-[BibleDailyTests.SearchAndShareTests testQueryBuildsWordAndPhraseConditions]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.SearchAndShareTests testShareTextIncludesReferenceAndTranslation]' passed (0.001 seconds).
+Test Case '-[BibleDailyTests.SearchAndShareTests testVerseOfDayRotatesDaily]' passed (0.004 seconds).
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.012 (0.014) seconds
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.163 (0.930) seconds
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.163 (0.933) seconds
+Test Case '-[BibleDailyUITests.BibleDailyUITests test1_FirstLaunchShowsVerseOfDay]' passed (13.506 seconds).
+Test Case '-[BibleDailyUITests.BibleDailyUITests test2_ChapterNavigation]' passed (84.911 seconds).
+Test Case '-[BibleDailyUITests.BibleDailyUITests test3_SearchReferences]' passed (79.940 seconds).
+Test Case '-[BibleDailyUITests.BibleDailyUITests test4_ShareVerse]' passed (32.723 seconds).
+Test Case '-[BibleDailyUITests.BibleDailyUITests test5_NotesAndPositionSurviveRestart]' passed (54.552 seconds).
+Test Case '-[BibleDailyUITests.BibleDailyUITests test6_DarkModeAndSettings]' passed (13.910 seconds).
+ADS STATUS: consent update error: Failed to read publisher's account configuration; no form(s) configured for the input app ID. Verify that you have configured one or more forms for this application and try again. Received app ID: `ca-app-pub-8306955081407788~4913320752`. | consent form done | canRequestAds true | SDK started | banner loaded | interstitial loaded
+Test Case '-[BibleDailyUITests.BibleDailyUITests test7_TestAdsLoad]' passed (102.472 seconds).
+	 Executed 7 tests, with 0 failures (0 unexpected) in 382.015 (382.025) seconds
+	 Executed 7 tests, with 0 failures (0 unexpected) in 382.015 (382.028) seconds
+	 Executed 7 tests, with 0 failures (0 unexpected) in 382.015 (382.031) seconds

@@ -1,0 +1,161 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "CA10166C-456C-4A13-8075-F57157D578C2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "01_home_0_4A948D6D-4E85-49E0-9ED2-791039EECDB2.png",
+        "timestamp" : 1795180850.997
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test1_FirstLaunchShowsVerseOfDay()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test1_FirstLaunchShowsVerseOfDay"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "06E471E6-AED8-495C-9F9E-2269088DA053.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "02_reader_genesis_1_0_DDCFA13A-0435-47CB-A3E7-65744C1EB86E.png",
+        "timestamp" : 1795180892.899
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test2_ChapterNavigation()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test2_ChapterNavigation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "429A1C47-1065-4B8A-B15F-2606D9792557.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "04_search_phrase_0_B614FD41-8161-4AE5-BF6F-EB6B65AA7DB4.png",
+        "timestamp" : 1795181015.85
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "F5FDDE20-6F09-414F-B8F2-70D7A642E472.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "03_john_3_16_0_3A757064-4D2B-4506-AC9A-C84F3049B14A.png",
+        "timestamp" : 1795180981.811
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test3_SearchReferences()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test3_SearchReferences"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "25D79757-3342-4418-88B9-A503DCA9A294.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "06_share_sheet_0_A23A17DB-5819-45C9-BEE6-9144C0BBFAA7.png",
+        "timestamp" : 1795181048.618
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "8F1A6E26-8F19-48E1-8334-104CAA47F300.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "05_verse_actions_0_3675BFB0-C8B9-413B-A4D2-2651DC1DE8C6.png",
+        "timestamp" : 1795181041.737
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test4_ShareVerse()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test4_ShareVerse"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "D4140ED8-486B-41F4-ADF0-07665F7A0E53.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "09_reader_after_restart_0_5302AD9A-3E27-46A7-A807-807A4C24BC13.png",
+        "timestamp" : 1795181103.147
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "9AE73ACF-E78F-4D32-8503-D118EB54DFCA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "08_saved_notes_after_restart_0_7661C768-BF7E-44EE-A4EA-2F1A4960F5BD.png",
+        "timestamp" : 1795181097.692
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "5D750823-0912-4D28-87C5-CF0DA751A8A2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "07_marked_verse_0_69FCCB8B-F65B-4506-968A-D69460CADEFF.png",
+        "timestamp" : 1795181084.339
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test5_NotesAndPositionSurviveRestart()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test5_NotesAndPositionSurviveRestart"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "E979054E-5681-4004-B62D-9EED84CAAF44.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "10_settings_dark_0_3C4D804C-4B81-41AF-AD41-372E90BA75D1.png",
+        "timestamp" : 1795181114.92
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test6_DarkModeAndSettings()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test6_DarkModeAndSettings"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "C309197C-5344-4EDD-A9F9-60966D1F92DB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "12_interstitial_ad_0_1D2D78AD-448B-465B-9C88-A2DFC3B09D3B.png",
+        "timestamp" : 1795181219.464
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "C719D83E-617B-44FE-85B8-A1BC9BF9DD2E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "11c_reader_with_banner_0_3FE34538-2D03-46A3-9A49-B77B6D2C326C.png",
+        "timestamp" : 1795181196.698
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "B290E327-433A-4878-BC55-828A994DCA6C",
+        "deviceName" : "iPhone 17 Pro",
+        "exportedFileName" : "48EAF2D5-5C2D-4612-A715-7D7E0A4969D0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "11_banner_ad_0_C7346E53-3579-42CB-8716-7A696CDFB427.png",
+        "timestamp" : 1795181187.936
+      }
+    ],
+    "testIdentifier" : "BibleDailyUITests/test7_TestAdsLoad()",
+    "testIdentifierURL" : "test://com.apple.xcode/BibleDaily/BibleDailyUITests/BibleDailyUITests/test7_TestAdsLoad"
+  }
+]
